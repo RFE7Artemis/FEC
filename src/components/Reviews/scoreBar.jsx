@@ -4,21 +4,21 @@ import React from 'react';
 const ScoreBar = ({ score }) => {
 
   const parentDiv = {
-    height: 30,
+    height: 20,
     width: '80%',
     backgroundColor: 'grey',
-    borderRadius: 40,
-    margin: 10
+    borderRadius: 100,
+    margin: 5
   };
   const childDiv = {
     height: '100%',
     width: `${score}%`,
     backgroundColor: 'yellow',
-    borderRadius: 30,
+    borderRadius: 100,
     textAlign: 'center'
   }
   const scoreText = {
-    padding: 10,
+    padding: 0,
     color: 'black',
     fontWeight: 900
   }

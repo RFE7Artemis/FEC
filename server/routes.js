@@ -21,7 +21,7 @@ router.get('/reviews', (req, getRes) => {
     params: {
       page: 1, //review page to pull from
       count: 50, //number of reviews to pull
-      sort: 'relevant', //placeholder - replace with currently selected sort method
+      sort: 'newest', //placeholder - replace with currently selected sort method
       product_id: 37314 //placeholder - replace with id of current product
     }
   };
@@ -56,17 +56,16 @@ router.post('/reviews', (req, postRes) => {
     method: 'POST',
     url: url + '/reviews',
     headers: headers,
-    params: {
-      product_id: 37314, //placeholder - replace with id of current product
-      rating: 5, //placeholder - takes in 1-5 for star rating
-      summary: 'User Entered Title Here', //placeholder
-      body: 'User Entered Review Body Goes Here', //placeholder
-      recommend: true, //placeholder - boolean representing if user recommends product
-      name: 'User Entered Username', //placeholder
-      email: 'User@Entered.Email', //placeholder
-      photos: [], //placeholder - array of text urls that link to user uploaded images
-      characteristics: {} //placeholder - object of keys representing characteristic_id and values representing review value
-      //example, "size" is characteristic 14. {14:3} is perfect size. {14:5} is a full size too big {14:2} is a half size small
+    data: {
+      product_id: 37314,
+      rating: 3,
+      summary: 'ReviewTitle',
+      body: 'Review Body For The Review That We Are Testing This Review Text Must Meet A Minumum Number Of Characters To Work But I Dont Know Why I Did A Camel Case Sentence Thats Just Weird',
+      recommend: true,
+      name: 'ReviewerName',
+      email: 'ReviewerEmail@email.com',
+      photos: [],
+      characteristics: { }
     }
   };
   axios(options)
@@ -159,7 +158,7 @@ router.post('/questionPost', (req, postRes) => {
     method: 'POST',
     url: url + '/qa/questions',
     headers: headers,
-    params: {
+    data: {
       body: 'body of question',
       name: 'Megan',
       email: 'user@gmail.com',
@@ -179,7 +178,7 @@ router.post('/answerPost', (req, postRes) => {
     method: 'POST',
     url: url + '/qa/questions/300/answers',
     headers: headers,
-    params: {
+    data: {
       question_id: 300,
       body: 'body of answer',
       name: 'Megan',
@@ -343,7 +342,7 @@ router.post(`/cart`, (req, getRes) => {
     method: 'POST',
     url: url + `/cart`,
     headers: headers,
-    params: {
+    data: {
       sku_id: sku
     }
   };

@@ -20,12 +20,8 @@ class ReviewScroll extends React.Component {
     this.updateReviews = this.updateReviews.bind(this);
   }
   updateReviews() {
-    if (this.state.revs.length < 2) {
-      let reviews = this.props.reviews;
-      if (reviews.length >= 2) {
-        this.setState({revs: [reviews[0], reviews[2]]})
-      }
-    }
+    let revs = this.props.reviews;
+    this.setState({revs});
   }
   componentDidMount() {
 
@@ -34,12 +30,16 @@ class ReviewScroll extends React.Component {
     if (this.props.reviews !== prevProps.reviews) {
       this.updateReviews();
     }
+    if (this.props.reviews.length > this.state.revs.length) {
+      this.updateReviews();
+    }
   }
   render() {
     return (
     <div className="revScroll"> Review Scroll Starts Here
-      <Review review={this.state.revs[0]} />
-      <Review review={this.state.revs[1]} />
+      {this.state.revs.map((review, i) => (
+        <Review key={i} review={review} />
+      ))}
     </div>
     )
   }

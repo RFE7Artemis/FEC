@@ -10,26 +10,13 @@ class ReviewWidget extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: {},
       meta: {
         ratings: {},
         recommended: {},
         characteristics: {}
       }
     };
-    this.getReviews = this.getReviews.bind(this);
     this.getMeta = this.getMeta.bind(this);
-  }
-
-  getReviews() {
-    axios.get('/api/reviews')
-      .then( (res) => {
-        this.setState({reviews: res.data});
-        // console.log(this.state)
-      })
-      .catch( (err) => {
-        console.log('Axios /reviews failed >', err);
-      });
   }
 
   getMeta() {
@@ -42,15 +29,12 @@ class ReviewWidget extends React.Component {
     });
   }
   componentDidMount() {
-    this.getReviews();
     this.getMeta();
   }
   render() {
     return <div className="reviews"> Reviews Section
       <Averages meta={this.state.meta} />
-      <BodyElement reviews={this.state.reviews} />
-      <button>More Reviews</button>
-      <button>Add A Review +</button>
+      <BodyElement />
     </div>
   }
 

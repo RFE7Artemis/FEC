@@ -5,6 +5,7 @@ import Report from './Report.jsx';
 //This Element creates a single review
 const Review = ({ review }) => {
   if (review) {
+    // console.log(review);
     return (
       <div> Review
         <div className="reviewTitle">{review.summary}</div>

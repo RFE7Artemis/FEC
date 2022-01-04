@@ -49,6 +49,7 @@ class averagesElement extends React.Component {
     }
   }
   render() {
+    //console.log(this.props.meta)
     return (
     <div className="revAverages"> Averages
       <div className="starScore">Average Score: {this.state.avgRate}</div>

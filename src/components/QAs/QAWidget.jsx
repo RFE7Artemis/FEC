@@ -94,9 +94,9 @@ class QAWidget extends React.Component {
     this.getAllQuestions();
   }
 
-  componentDidUpdate() {
-    this.getAllAnswers();
-  }
+  // componentDidUpdate() {
+  //   this.getAllAnswers();
+  // }
 
   render() {
     return (

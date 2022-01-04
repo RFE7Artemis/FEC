@@ -296,6 +296,10 @@ margin: 0 10px 10px 0;
   order: 1;
   border: 2px solid red;
 }
+.revScroll {
+  height: 200px;
+  overflow: auto;
+}
 
 /* ------------------------Footer---------------------- */
 
